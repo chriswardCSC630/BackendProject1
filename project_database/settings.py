@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#Personal Google API key from Google Maps Platfrom (had to sign up for the free trial)
+GOOGLE_API_KEY = "AIzaSyBG6k24idOQBEt6BLCTer4-PI-vcGQaY0I"
+
 
 # Application definition
 
