@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#a file created by django, uneditted
+
 import os
 import sys
 

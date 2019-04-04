@@ -1,3 +1,5 @@
+#a file created by django, uneditted
+
 """
 WSGI config for project_database project.
 

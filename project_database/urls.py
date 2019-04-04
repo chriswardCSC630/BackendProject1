@@ -1,21 +1,16 @@
 from django.contrib import admin
 from django.urls import include, path
-from django.http import HttpResponse, JsonResponse
 from django.views import View
 from rest_framework import routers
-from sqlapp.models import *
+from sqlapp.views import *
 
-class displayPois(View):
-
-    def getPois(requets, usr):
-        data = {}
-        id = User.objects.get(username=usr).id
-        for place in Poi.objects.filter(userID=id):
-            data[place.poi_title] = (float(place.latitude), float(place.longitude))
-        return JsonResponse(data)
-
+#set up all the urls for the server
 urlpatterns = [
     path('', admin.site.urls),
     path('admin/', admin.site.urls),
-    path('<str:usr>/poi', displayPois.getPois, name="pois"),
+    path('<str:user_id>/poi/', info.getPois, name="pois"),
+    path('users/', info.getUsers, name="users"),
+    path('users/<str:user_id>/', info.modifyUSR, name="modifyUSR"),
+    path('locations/', info.getLocations, name="users"),
+    path('locations/<str:user_id>/<str:title>/', info.modifyPOI, name="modifyPOI")
 ]

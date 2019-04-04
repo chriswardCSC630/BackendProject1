@@ -1,43 +1,62 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.views import views
-from django.http import JsonResponse
+from .models import *
+from django.views import View
+from django.http import JsonResponse, QueryDict
 
-# Create your views here.
+# Handles all requests from urls.py
+class info(View):
 
-from django.views.generic import View
-from django.shortcuts import redirect, render
-from django.forms.models import modelform_factory
-from django.http import HttpResponse
+    #handle GET and POST requests at server/user_id/poi
+    def getPois(request, user_id):
+        if request.method == "GET":
+            data = {}
+            for place in Poi.objects.filter(userID=user_id):
+                print(place)
+                data[place.poi_title] = (float(place.latitude), float(place.longitude))
+            return JsonResponse(data)
+        elif request.method == "POST":
+            data = QueryDict(request.META["QUERY_STRING"]).dict()
+            Poi.objects.create(userID=data["userID"], poi_title=data["poi_title"], address=data["address"], city=data["city"], state=data["state"], zip_code=data["zip_code"])
+            return JsonResponse({"message": "POSTed"})
 
-from .models import MyModel
+    #handle GET and POST requests at server/users/
+    def getUsers(request):
+        if request.method == "GET":
+            data = {}
+            for usr in User.objects.all():
+                data[usr.userID] = "Name: " + str(usr.name) + ": Username: " + str(usr.username)
+            return JsonResponse(data)
+        elif request.method == "POST":
+            data = QueryDict(request.META["QUERY_STRING"]).dict()
+            User.objects.create(userID=data["userID"], name=data["name"], username=data["username"], latitude=data["latitude"], longitude=data["longitude"])
+            return JsonResponse({"message": "POSTed"})
 
-class RestView(View):
-  def get(self, request):
-    # retrieve some object and render in template
-    object = MyModel.objects.get(pk=request.GET['pk'])
-    return render(request, 'object_detail.html',
-                  {'object': object})
+    #return a formatted version of all users' homebases and places of interest at server/locations/
+    def getLocations(requets):
+        data = {}
+        for usr in User.objects.all():
+            pois = ""
+            for place in Poi.objects.filter(userID=usr.userID):
+                pois += "(" + place.poi_title + ": " + str(place.latitude) + ", " + str(place.longitude) + ")"
+            data[usr.userID] = "Homebase: " + str(usr.latitude) + ", " + str(usr.longitude) + " | Points of Interest: {" + pois + "}"
+        return JsonResponse(data)
 
-  def put(self, request):
-    # create an object and redirect to detail page
-     modelform = modelform_factory(MyModel)
-    form = modelform(request.PUT)
-    if form.is_valid():
-        form.save()
-    return redirect('restview')
+    #handles POST and DELETE from server/users/user_id
+    def modifyUSR(request, user_id):
+        return info.modify(request, User.objects.get(userID=user_id))
 
-  def delete(self, request):
-    # delete an object and send a confirmation response
-    MyModel.objects.get(pk=request.DELETE['pk']).delete()
-    return HttpResponse()
+    #handles POST and DELETE from server/locations/user_id/poi_title
+    def modifyPOI(request, user_id, title):
+        return info.modify(request, Poi.objects.get(userID=user_id, poi_title=title))
 
-    $.ajax({
-    type: 'POST',
-    url: '/restview',
-    data: { pk: pk },
-    success: function() {
-        alert('Object deleted!')
-    },
-    headers: { 'X_METHODOVERRIDE': 'DELETE' }
-});
+    #modify function to handle modifying users and places of interest
+    def modify(request, object):
+        if request.method == "PATCH":
+            data = QueryDict(request.META["QUERY_STRING"]).dict()
+            #loop from https://stackoverflow.com/questions/1576664/how-to-update-multiple-fields-of-a-django-model-instance
+            for (key, value) in data.items():
+                setattr(object, key, value)
+            object.save() #save the modified object
+            return JsonResponse({"message": "PATCHed"})
+        if request.method == "DELETE":
+            object.delete()
+            return JsonResponse({"message": "DELETEd"})

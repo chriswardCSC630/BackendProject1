@@ -1,5 +1,6 @@
-from django.apps import AppConfig
+#a file created by django, uneditted
 
+from django.apps import AppConfig
 
 class SqlappConfig(AppConfig):
     name = 'sqlapp'
