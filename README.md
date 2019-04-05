@@ -11,7 +11,7 @@ The server runs on Heroku at: https://blooming-escarpment-33849.herokuapp.com/
 Code was tested locally on port 8000. To test code locally, you will need to modify
 NAME, USER, and PASSWORD in the DATABASES block located in setting.py
 
-Server Explanation:
+# Server Explanation:
   For the most part, Rachna and I followed the user and locations idea outlined
   on the canvas assignment. Here is how you should interact with the server:
 
@@ -23,7 +23,7 @@ Server Explanation:
   ---LINK---/locations/: return all users' homebase and place of interest (latitude, longitude)
   ---LINK---/locations/user_id/poi_title/: PATCH or DELETE a place of interest based on their ID and the poi's title
 
-A few notes:
+## A few notes:
   1) Do not name two places of interest the same thing. This will cause PATCH and DELETE errors which we did not yet handle.
   2) Do not give two users the same ID. IDs should be unique.
   3) The following links were used to help push to Heroku and link to a database:
