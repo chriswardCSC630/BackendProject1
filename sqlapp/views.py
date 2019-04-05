@@ -1,4 +1,4 @@
-from .models import *
+from sqlapp.models import *
 from django.views import View
 from django.http import JsonResponse, QueryDict
 
@@ -22,7 +22,7 @@ class info(View):
     def getUsers(request):
         if request.method == "GET":
             data = {}
-            for usr in models.User.objects.all():
+            for usr in User.objects.all():
                 data[usr.userID] = "Name: " + str(usr.name) + ": Username: " + str(usr.username)
             return JsonResponse(data)
         elif request.method == "POST":
