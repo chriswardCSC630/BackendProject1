@@ -6,8 +6,8 @@ from sqlapp.views import *
 
 #set up all the urls for the server
 urlpatterns = [
-    path('', admin.site.urls),
-    path('admin/', admin.site.urls),
+    path('', info.getUsers),
+    path('admin/', info.getUsers),
     path('<str:user_id>/poi/', info.getPois, name="pois"),
     path('users/', info.getUsers, name="users"),
     path('users/<str:user_id>/', info.modifyUSR, name="modifyUSR"),

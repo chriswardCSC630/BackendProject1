@@ -25,4 +25,7 @@ Server Explanation:
 A few notes:
   1) Do not name two places of interest the same thing. This will cause PATCH and DELETE errors which we did not yet handle.
   2) Do not give two users the same ID. IDs should be unique.
-  3) The following links were used to help push to Heroku and link to a database: ---OTHER LINKS---
+  3) The following links were used to help push to Heroku and link to a database:
+    https://docs.appery.io/docs/apiexpress-databaseconnection-heroku-postgres
+    To solve the error where heroku created 0 tables, I pushed my tables from my local databases
+    using the following link: https://devcenter.heroku.com/articles/heroku-postgresql#heroku-postgres-ssl
