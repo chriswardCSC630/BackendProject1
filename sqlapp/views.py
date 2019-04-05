@@ -6,7 +6,7 @@ from django.http import JsonResponse, QueryDict, HttpResponse
 class info(View):
 
     def instructions(request):
-        return HttpResponse('<a href="https://github.com/nzufelt/resources_for_students/blob/master/webdev.md">Go to instructions</a>')
+        return HttpResponse('<a href="https://github.com/chriswardCSC630/BackendProject1/blob/master/README.md">Go to instructions</a>')
 
     #handle GET and POST requests at server/user_id/poi
     def getPois(request, user_id):
