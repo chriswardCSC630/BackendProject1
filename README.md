@@ -16,13 +16,13 @@ NAME, USER, and PASSWORD in the DATABASES block located in setting.py
   For the most part, Rachna and I followed the user and locations idea outlined
   on the canvas assignment. Here is how you should interact with the server:
 
-  https://backend-project1.herokuapp.com/: link to this README.md on github
-  https://backend-project1.herokuapp.com/admin/: directly access the database
-  https://backend-project1.herokuapp.com/user_id/poi: GET all of a user's place of interests, or POST a new one
-  https://backend-project1.herokuapp.com/users/: GET all users (name and username displayed) or POST a new one
-  https://backend-project1.herokuapp.com/users/user_id/: PATCH or DELETE a user based on their ID
-  https://backend-project1.herokuapp.com/locations/: return all users' homebase and place of interest (latitude, longitude)
-  https://backend-project1.herokuapp.com/locations/user_id/poi_title/: PATCH or DELETE a place of interest based on their ID and the poi's title
+  * https://backend-project1.herokuapp.com/: link to this README.md on github
+  * https://backend-project1.herokuapp.com/admin/: directly access the database
+  * https://backend-project1.herokuapp.com/user_id/poi: GET all of a user's place of interests, or POST a new one
+  * https://backend-project1.herokuapp.com/users/: GET all users (name and username displayed) or POST a new one
+  * https://backend-project1.herokuapp.com/users/user_id/: PATCH or DELETE a user based on their ID
+  * https://backend-project1.herokuapp.com/locations/: return all users' homebase and place of interest (latitude, longitude)
+  * https://backend-project1.herokuapp.com/locations/user_id/poi_title/: PATCH or DELETE a place of interest based on their ID and the poi's title
 
 ## A few notes:
   1) Do not name two places of interest the same thing. This will cause PATCH and DELETE errors which we did not yet handle.
