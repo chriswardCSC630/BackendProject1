@@ -75,6 +75,7 @@ DATABASES = {
     }
 }
 
+#code from heroku django documentation: https://devcenter.heroku.com/articles/heroku-postgresql#heroku-postgres-ssl
 import dj_database_url
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 

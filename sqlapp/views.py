@@ -10,7 +10,6 @@ class info(View):
         if request.method == "GET":
             data = {}
             for place in Poi.objects.filter(userID=user_id):
-                print(place)
                 data[place.poi_title] = (float(place.latitude), float(place.longitude))
             return JsonResponse(data)
         elif request.method == "POST":
