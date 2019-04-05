@@ -22,7 +22,7 @@ class info(View):
     def getUsers(request):
         if request.method == "GET":
             data = {}
-            for usr in User.objects.all():
+            for usr in models.User.objects.all():
                 data[usr.userID] = "Name: " + str(usr.name) + ": Username: " + str(usr.username)
             return JsonResponse(data)
         elif request.method == "POST":
