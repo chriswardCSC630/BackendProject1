@@ -13,7 +13,7 @@ SECRET_KEY = 'se-3^9jj$xpgpy$0wf)$-nfq29x&*55_m-3(p&=)l9bv(v=nux'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '.herokuapp.com']
 
 #Personal Google API key from Google Maps Platfrom (had to sign up for the free trial)
 GOOGLE_API_KEY = "AIzaSyBG6k24idOQBEt6BLCTer4-PI-vcGQaY0I"
@@ -111,5 +111,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
