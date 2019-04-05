@@ -1,6 +1,6 @@
-Chris Ward and Rachna Lewis
-CSC630 with Dr. Zufelt, Period 5
-Due: Friday, April 5th
+* Chris Ward and Rachna Lewis
+* CSC630 with Dr. Zufelt, Period 5
+* Due: Friday, April 5th
 
 Academic Integrity Note: Both in and out of class, Rachna and I worked with the
 other python backend group, Eric and Katherine.
