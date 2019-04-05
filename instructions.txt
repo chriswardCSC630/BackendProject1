@@ -4,8 +4,9 @@ Due: Friday, April 5th
 
 Academic Integrity Note: Both in and out of class, Rachna and I worked with the
 other python backend group, Eric and Katherine.
+Link used to create database: https://docs.appery.io/docs/apiexpress-databaseconnection-heroku-postgres
 
-The server runs on Heroku at: -----LINK-----
+The server runs on Heroku at: https://blooming-escarpment-33849.herokuapp.com/
 
 Code was tested locally on port 8000. To test code locally, you will need to modify
 NAME, USER, and PASSWORD in the DATABASES block located in setting.py
