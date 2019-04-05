@@ -1,6 +1,6 @@
 Chris Ward and Rachna Lewis
 CSC630 with Dr. Zufelt, Period 5
-Due: Friday, April 4th
+Due: Friday, April 5th
 
 Academic Integrity Note: Both in and out of class, Rachna and I worked with the
 other python backend group, Eric and Katherine.
@@ -8,7 +8,7 @@ other python backend group, Eric and Katherine.
 The server runs on Heroku at: -----LINK-----
 
 Code was tested locally on port 8000. To test code locally, you will need to modify
-NAME, USER, and PASSWORD in the DATABASES block in setting.py
+NAME, USER, and PASSWORD in the DATABASES block located in setting.py
 
 Server Explanation:
   For the most part, Rachna and I followed the user and locations idea outlined
