@@ -15,7 +15,8 @@ Server Explanation:
   For the most part, Rachna and I followed the user and locations idea outlined
   on the canvas assignment. Here is how you should interact with the server:
 
-  ---LINK---/ or ---LINK---/admin/: directly access the database
+  https://backend-project1.herokuapp.com/
+  https://backend-project1.herokuapp.com/admin/: directly access the database
   ---LINK---/user_id/poi: GET all of a user's place of interests, or POST a new one
   ---LINK---/users/: GET all users (name and username displayed) or POST a new one
   ---LINK---/users/user_id/: PATCH or DELETE a user based on their ID

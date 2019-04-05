@@ -1,9 +1,12 @@
 from sqlapp.models import *
 from django.views import View
-from django.http import JsonResponse, QueryDict
+from django.http import JsonResponse, QueryDict, HttpResponse
 
 # Handles all requests from urls.py
 class info(View):
+
+    def instructions(request):
+        return HttpResponse("<a>https://raw.githubusercontent.com/chriswardCSC630/BackendProject1/master/instructions.txt<a>")
 
     #handle GET and POST requests at server/user_id/poi
     def getPois(request, user_id):
